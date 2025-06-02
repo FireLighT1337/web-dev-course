@@ -1,0 +1,109 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 50px 50px 0 50px;
+  background-color: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+
+.main {
+  flex: 1;
+}
+
+.tile-image {
+  height: 200px;
+  width: 300px;
+  margin-right: 5vh;
+  margin-bottom: 2.5vh;
+  float: left;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-content {
+  flex: 1;
+  max-width: 40vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 45%;
+  max-width: 45%;
+}
+
+.title-h1 {
+  font-size: 5rem;
+  max-width: 750px;
+}
+
+span {
+  color: midnightblue;
+}
+
+footer {
+  text-align: right;
+  color: midnightblue;
+}
+
+@media (max-width: 723px) {
+  .logo {
+    width: 100px;
+  }
+
+  .title-h1 {
+    font-size: 3rem;
+    max-width: 550px;
+    text-align: center;
+  }
+  
+  .tile-image {
+    width: 550px;
+    height: 225px;
+    object-fit: cover;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .card-content {
+    flex: 1;
+    max-width: 90vh;
+    margin-bottom: 2.5vh;
+    text-align: justify;
+  }
+
+  footer {
+    text-align: right;
+    color: midnightblue;
+    margin-right: 15vh;
+  }
+}
+
+@media (min-width: 724px) and (max-width: 1100px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card-content {
+    max-width: 80vh;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .right.card {
+    flex-direction: column;
+  }
+
+  .right.card .card-content {
+    max-width: 80vh;
+  }
+}
