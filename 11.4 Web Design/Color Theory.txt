@@ -1,0 +1,25 @@
+Red: Love, Energy, Intensity
+Example: Red Car Ads
+Yellow: Joy, Intellect, Attention
+Example: Yellow Bikini Ad
+Green: Freshness, Safety, Growth
+Example: Grocery Websites
+Blue: Stability, Trust, Serenity
+Example: Paypal, Coinbase
+Purple: Royalty, Wealth, Femininity
+Example: Websites targeted at women
+
+Combining Colors:
+Colors next to each other on the color wheel -> Analogous Colors
+Good for NavBars, Website bodies, Logo and its background
+
+Standing out:
+Colors on opposite ends of the color wheel -> Complementary Colors
+
+Other ways of combining colors:
+Draw a triangle in the color wheel
+Draw a square in the color wheel
+
+Tools:
+https://color.adobe.com/create/color-wheel
+https://colorhunt.co/

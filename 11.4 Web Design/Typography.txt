@@ -1,0 +1,15 @@
+Types:
+
+Serif: Traditional, Stable, Respectable
+Examples: Minion Pro, Trajan, Baskerville
+Sans-Serif: Sensible, Simple, Straightforward, Kind, Easy to read
+Examples: Gill Sans, Helvetica, Avenir, Din
+Script: Personal, Creative, Elegant
+Examples: Freestyle Script, Adios Script Pro, Snell Roundhand
+Display: Friendly, Loud, Amusing
+Examples: Vag Rounded, Gin, Thirsty Rough
+Modern: Didot, Stylish, Chic, Smart
+Examples: Sackers Gothic, Gotham, Futura
+
+Stick to max 2 Fonts for a Section
+They should be either similar or contrasting
