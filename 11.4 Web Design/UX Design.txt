@@ -1,0 +1,13 @@
+1. Simplicity:
+Keep things simple
+e.g. instead of bombarding with text, use some images and keep things shorter
+
+2. Consistency:
+Keep things consistent
+e.g. Keep the header consistent if there are different pages for the application
+
+3. Reading patterns:
+Use either the F-Layout or Z-Layout when designing, for better experience
+
+4. All Platform Design:
+Keep both big and small screens in mind, content should be easily readable and elements should fill out the available space

@@ -1,0 +1,15 @@
+Draw attention to things by making them bigger than the rest
+Use contrast to make important things stand out
+Blocks of text should be 40-60 characters per line for optimal readability
+Try to keep alignment as tidy as possible:
+dont
+    do
+        this
+            unless necessary
+
+Whitespace: Keep design minimalistic and keep space around things to elevate them
+Most important: always keep your audience in mind when designing a website, what would be appealing to them?
+
+Useful Links:
+https://www.dailyui.co/
+https://collectui.com/
