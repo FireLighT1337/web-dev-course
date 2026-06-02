@@ -1,0 +1,24 @@
+querySelector works like in css sheets, so:
+class: e.g. .list
+id: e.g. #list
+tag: e.g. li
+
+getElementBy is just for the specific thing
+there can also be getElementsBy, which returns a list of all things found
+
+querySelector can be combined, e.g. (".btn a"); for an anchor tag inside a button
+there is also querySelectorAll, which returns a list of all things found
+
+when using querySelector, classList can be use to show all classes
+or e.g. querySelector("...").classList.add("invisible"); would add invisible to that element
+so if the css file contains .invisible that would be applied
+classList.remove also exists and does the opposite, classList.toggle either turns it on or off
+
+innerHTML can be used to alter text but also if you want to add tags while doing it e.g. Hello in strong tags
+textContent can only be used to alter text, nothing more
+
+getAttribute or setAttribute can be used to get/change things inside of a tag
+e.g. querySelector("...").getAttribute("href);
+
+Useful links:
+https://www.w3schools.com/jsref/dom_obj_style.asp
