@@ -1,0 +1,6 @@
+<%= var %>              JS Output
+<% code %>              JS Execute
+<%- HTML Code %>        Render HTML
+<%% ... %%>             Escape, to actually show <% %>
+<%# %>                  Comment
+<%- include("...")%>    Include another ejs file
