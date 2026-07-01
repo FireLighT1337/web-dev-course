@@ -4,6 +4,7 @@ import pg from "pg";
 import bcrypt from "bcrypt";
 import passport from "passport";
 import { Strategy } from "passport-local";
+import GoogleStrategy from "passport-google-oauth20";
 import session from "express-session";
 import env from "dotenv";
 
@@ -17,7 +18,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-  })
+  }),
 );
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -65,12 +66,25 @@ app.get("/secrets", (req, res) => {
   }
 });
 
+app.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] }),
+);
+
+app.get(
+  "/auth/google/secrets",
+  passport.authenticate("google", {
+    successRedirect: "/secrets",
+    failureRedirect: "/login",
+  }),
+);
+
 app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/secrets",
     failureRedirect: "/login",
-  })
+  }),
 );
 
 app.post("/register", async (req, res) => {
@@ -91,7 +105,7 @@ app.post("/register", async (req, res) => {
         } else {
           const result = await db.query(
             "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
-            [email, hash]
+            [email, hash],
           );
           const user = result.rows[0];
           req.login(user, (err) => {
@@ -107,6 +121,7 @@ app.post("/register", async (req, res) => {
 });
 
 passport.use(
+  "local",
   new Strategy(async function verify(username, password, cb) {
     try {
       const result = await db.query("SELECT * FROM users WHERE email = $1 ", [
@@ -136,7 +151,37 @@ passport.use(
     } catch (err) {
       console.log(err);
     }
-  })
+  }),
+);
+
+passport.use(
+  "google",
+  new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+  }),
+  async (accessToken, refreshToken, profile, cb) => {
+    try {
+      const result = await db.query("SELECT * FROM users WHERE email = $1", [
+        profile.email,
+      ]);
+      if (result.rows.length === 0) {
+        // people do different things here, some store the profile id in the password field, some just put "google" for example, cause they logged in with Google, to know why there is no password
+        const newUser = await db.query(
+          "INSERT INTO users (email, password) VALUES ($1, $2)",
+          [profile.email, "google"],
+        );
+        cb(null, newUser.rows[0]);
+      } else {
+        // User already exists
+        cb(null, result.rows[0]);
+      }
+    } catch (err) {
+      cb(err);
+    }
+  },
 );
 
 passport.serializeUser((user, cb) => {
